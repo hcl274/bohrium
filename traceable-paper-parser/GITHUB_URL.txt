@@ -1,1 +1,1 @@
-本次未提供公开仓库链接，不申报 GitHub 公开作品附加分。
+https://github.com/hcl274/bohrium/tree/main/traceable-paper-parser
