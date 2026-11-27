@@ -1,0 +1,43 @@
+{
+  "_note": "最小调用示例（示例，非正式案例结果；正式案例由平台提供并运行）",
+  "case_id": "demo-case-01",
+  "status": "ok",
+  "summary": "示例：解析一份 8 页双栏论文，产出 12 页幻灯片；证据 18/18 条逐字匹配。此文件仅为示意结构。",
+  "artifacts": [
+    {"path": "/app/output/deck.pptx", "kind": "pptx"},
+    {"path": "/app/output/deck.pdf", "kind": "pdf"},
+    {"path": "/app/output/extracted_text.md", "kind": "markdown"},
+    {"path": "/app/output/outline.md", "kind": "markdown"},
+    {"path": "/app/output/speaker_notes.md", "kind": "markdown"},
+    {"path": "/app/output/evidence_map.json", "kind": "json"}
+  ],
+  "primary_result": {
+    "document": {
+      "title": "示例论文标题",
+      "pages": 8,
+      "sections": [{"heading": "Introduction", "page": 1, "level": 1}],
+      "tables": [],
+      "figures": [],
+      "formulas": [],
+      "references": []
+    },
+    "extracted_text_path": "/app/output/extracted_text.md",
+    "deck_path": "/app/output/deck.pptx",
+    "evidence_map_path": "/app/output/evidence_map.json"
+  },
+  "evidence": [
+    {"id": "E1", "claim": "章节：Introduction", "quote": "Introduction", "locator": "paper p.1 [U0001001]", "kind": "direct", "verified": true}
+  ],
+  "sources": [
+    {"id": "S1", "file": "paper.pdf", "kind": "pdf", "pages": 8, "readable": true, "text_layer": true}
+  ],
+  "coverage": {"required": 8, "done": 6, "rate": 0.75, "missing": ["图表", "公式"], "notes": "示例，未包含图表/公式"},
+  "verification": {"checks": [{"id": "C1", "name": "quote 逐字匹配", "checked": 1, "passed": 1, "failed": 0}], "fail_count": 0, "warn_count": 0},
+  "uncertainty": [],
+  "pending_human": [],
+  "errors": [],
+  "degradations": [],
+  "changes": [],
+  "runtime": {"requests": 0, "elapsed_seconds": 0, "script_versions": {"_common": "1.0", "parse_pdf": "1.0", "build_deck": "1.0", "render_preview": "1.0", "finalize": "1.0"}},
+  "output_contract": {"notes_path": "notes.md"}
+}

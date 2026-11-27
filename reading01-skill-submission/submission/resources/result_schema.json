@@ -1,0 +1,115 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "result.json contract (16 top-level fields)",
+  "type": "object",
+  "required": [
+    "case_id", "status", "summary", "artifacts", "primary_result",
+    "evidence", "sources", "coverage", "verification", "uncertainty",
+    "pending_human", "errors", "degradations", "changes", "runtime",
+    "output_contract"
+  ],
+  "properties": {
+    "case_id": {"type": "string"},
+    "status": {"type": "string", "enum": ["ok", "partial", "failed"]},
+    "summary": {"type": "string"},
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "kind"],
+        "properties": {
+          "path": {"type": "string"},
+          "kind": {"type": "string"},
+          "description": {"type": "string"}
+        }
+      }
+    },
+    "primary_result": {
+      "type": "object",
+      "properties": {
+        "document": {"type": "object"},
+        "extracted_text_path": {"type": "string"},
+        "deck_path": {"type": "string"},
+        "evidence_map_path": {"type": "string"}
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "claim", "quote", "locator", "kind", "verified"],
+        "properties": {
+          "id": {"type": "string"},
+          "claim": {"type": "string"},
+          "quote": {"type": "string"},
+          "locator": {"type": "string"},
+          "kind": {"type": "string", "enum": ["direct", "derived"]},
+          "verified": {"type": "boolean"}
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "file", "kind", "pages", "readable", "text_layer"],
+        "properties": {
+          "id": {"type": "string"},
+          "file": {"type": "string"},
+          "kind": {"type": "string"},
+          "pages": {"type": "integer"},
+          "readable": {"type": "boolean"},
+          "text_layer": {"type": "boolean"}
+        }
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "required": ["required", "done", "rate", "missing", "notes"],
+      "properties": {
+        "required": {"type": "integer"},
+        "done": {"type": "integer"},
+        "rate": {"type": "number"},
+        "missing": {"type": "array", "items": {"type": "string"}},
+        "notes": {"type": "string"}
+      }
+    },
+    "verification": {
+      "type": "object",
+      "required": ["checks", "fail_count", "warn_count"],
+      "properties": {
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "name", "checked", "passed", "failed"],
+            "properties": {
+              "id": {"type": "string"},
+              "name": {"type": "string"},
+              "checked": {"type": "integer"},
+              "passed": {"type": "integer"},
+              "failed": {"type": "integer"}
+            }
+          }
+        },
+        "fail_count": {"type": "integer"},
+        "warn_count": {"type": "integer"}
+      }
+    },
+    "uncertainty": {"type": "array"},
+    "pending_human": {"type": "array"},
+    "errors": {"type": "array"},
+    "degradations": {"type": "array"},
+    "changes": {"type": "array"},
+    "runtime": {
+      "type": "object",
+      "required": ["requests", "elapsed_seconds", "script_versions"],
+      "properties": {
+        "requests": {"type": "integer"},
+        "elapsed_seconds": {"type": "number"},
+        "script_versions": {"type": "object"}
+      }
+    },
+    "output_contract": {"type": "object"}
+  }
+}
