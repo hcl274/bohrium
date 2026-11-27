@@ -1,3 +1,0 @@
-# Recommended native-text / table backend; tested version.
-PyMuPDF==1.28.2
-# Poppler and Tesseract are optional system programs, not pip dependencies.
