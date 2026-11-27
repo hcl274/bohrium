@@ -1,0 +1,47 @@
+{
+  "_note": "示意输出（最小示例，仅说明接口与字段，非任何正式案例结果）",
+  "case_id": "demo",
+  "status": "partial",
+  "summary": "双语对照翻译：2/3 段完成，术语表 2 条（锁定 1 条），机械核验 fail 1。覆盖率 0.667。",
+  "artifacts": [
+    {"path": "outputs/translation.md", "kind": "output"},
+    {"path": "outputs/glossary.csv", "kind": "output"}
+  ],
+  "primary_result": {
+    "document": {"title": "A Demo Paper", "pages": 1},
+    "unit_index": [
+      {"id": "S0001-001", "page": 1, "type": "heading", "src_chars": 15},
+      {"id": "S0001-002", "page": 1, "type": "text", "src_chars": 88},
+      {"id": "S0001-003", "page": 1, "type": "text", "src_chars": 64}
+    ],
+    "glossary": [
+      {"src": "NLP", "tgt": "自然语言处理（NLP）", "status": "locked"}
+    ],
+    "coverage": {"units_total": 3, "units_translated": 2, "units_not_done": 1, "coverage_rate": 0.667},
+    "placeholder_semantics": {
+      "not_done": "〔待补:…〕 未做",
+      "script_placeholder": "〔未译:…〕 脚本占位",
+      "unsure": "〔存疑:…〕 已译但不确信"
+    }
+  },
+  "evidence": [
+    {
+      "claim": "段落 S0001-002 已译（120 字符）",
+      "quote": "This paper studies reading order detection.",
+      "source": "material",
+      "locator": {"segment": "S0001-002", "page": 1}
+    }
+  ],
+  "sources": [
+    {"id": "S1", "file": "/input/paper.pdf", "kind": "pdf", "pages": 1, "readable": true, "text_layer": true}
+  ],
+  "coverage": {"units_total": 3, "units_translated": 2, "units_not_done": 1, "coverage_rate": 0.667},
+  "verification": {"checks": [], "fail_count": 1, "warn_count": 0},
+  "uncertainty": ["部分段落未完成或有机械核验失败项"],
+  "pending_human": [],
+  "errors": [],
+  "degradations": [],
+  "changes": [],
+  "runtime": {"requests": 0, "elapsed_seconds": 0, "script_versions": {}},
+  "output_contract": {}
+}
